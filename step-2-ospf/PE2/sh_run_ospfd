@@ -1,0 +1,25 @@
+frr version 6.0
+frr defaults traditional
+hostname SoftRouter-PE2
+log syslog informational
+service integrated-vtysh-config
+username cumulus nopassword
+!
+password cisco123
+enable password cisco123
+!
+interface Loopback0
+ description Loopback-Prod
+ ip ospf 1 area 0
+!
+interface ens34
+ description vmnet7-RR-PE2
+ ip ospf 1 area 0
+ ip ospf network point-to-point
+!
+router ospf 1
+ ospf router-id 10.255.1.3
+!
+line vty
+!
+end

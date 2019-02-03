@@ -1,0 +1,25 @@
+frr version 6.0
+frr defaults traditional
+hostname SoftRouter-PE1
+log syslog informational
+service integrated-vtysh-config
+username cumulus nopassword
+!
+interface Loopback0
+ description Loopback-Prod
+ ip ospf 1 area 0
+!
+interface ens34
+ description vmnet6-RR-PE1
+ ip ospf 1 area 0
+ ip ospf network point-to-point
+!
+interface ens35 vrf VRF-A
+ description vmnet4-PE1-CE1-VRF-A
+!
+router ospf 1
+ ospf router-id 10.255.1.2
+!
+line vty
+!
+end

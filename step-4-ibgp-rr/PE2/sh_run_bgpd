@@ -1,0 +1,35 @@
+frr version 6.0
+frr defaults traditional
+hostname SoftRouter-PE2
+log syslog informational
+service integrated-vtysh-config
+username cumulus nopassword
+!
+password cisco123
+enable password cisco123
+!
+router bgp 65000
+ bgp router-id 10.255.1.3
+ no bgp default ipv4-unicast
+ neighbor 10.255.1.1 remote-as 65000
+ neighbor 10.255.1.1 update-source Loopback0
+ !
+ address-family ipv4 vpn
+  neighbor 10.255.1.1 activate
+ exit-address-family
+!
+router bgp 65000 vrf VRF-A
+ bgp router-id 10.255.1.3
+ neighbor 10.36.1.2 remote-as 65200
+ !
+ address-family ipv4 unicast
+  label vpn export 201
+  rd vpn export 20:1
+  rt vpn both 52:100
+  export vpn
+  import vpn
+ exit-address-family
+!
+line vty
+!
+end

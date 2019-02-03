@@ -1,0 +1,21 @@
+frr version 6.0
+frr defaults traditional
+hostname SoftRouter-PE1
+log syslog informational
+service integrated-vtysh-config
+username cumulus nopassword
+!
+mpls ldp
+ router-id 10.255.1.2
+ !
+ address-family ipv4
+  discovery transport-address 10.255.1.2
+  !
+  interface ens34
+  !
+ exit-address-family
+ !
+!
+line vty
+!
+end

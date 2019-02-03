@@ -1,0 +1,26 @@
+frr version 6.0
+frr defaults traditional
+hostname SoftRouter-RR
+log syslog informational
+service integrated-vtysh-config
+username cumulus nopassword
+!
+password cisco123
+enable password cisco123
+!
+mpls ldp
+ router-id 10.255.1.1
+ !
+ address-family ipv4
+  discovery transport-address 10.255.1.1
+  !
+  interface ens34
+  !
+  interface ens35
+  !
+ exit-address-family
+ !
+!
+line vty
+!
+end
