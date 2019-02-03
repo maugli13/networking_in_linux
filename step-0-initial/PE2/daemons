@@ -1,0 +1,6 @@
+zebra=yes
+bgpd=yes
+ospfd=yes
+ospfd_instances=1
+ldpd=yes
+bfdd=yes

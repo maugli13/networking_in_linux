@@ -1,0 +1,20 @@
+auto ens33
+iface ens33 inet static
+    address 192.168.166.53
+    netmask 255.255.255.0
+
+auto Loopback0
+iface Loopback0 inet manual
+    pre-up ip link add Loopback0 type dummy
+
+auto ens34
+iface ens34 inet manual
+
+auto VRF-A
+iface VRF-A
+    vrf_table 1001
+    up ip route add vrf VRF-A unreachable default metric 8192
+
+auto ens35
+iface ens35 inet manual
+    vrf VRF-A

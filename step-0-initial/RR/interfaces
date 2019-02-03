@@ -1,0 +1,14 @@
+auto ens33
+iface ens33 inet static
+    address 192.168.166.51
+    netmask 255.255.255.0
+
+auto Loopback0
+iface Loopback0 inet manual
+    pre-up ip link add Loopback0 type dummy
+
+auto ens34
+iface ens34 inet manual
+
+auto ens35
+iface ens35 inet manual
