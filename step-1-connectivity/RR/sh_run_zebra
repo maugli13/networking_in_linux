@@ -1,0 +1,26 @@
+frr version 6.0
+frr defaults traditional
+hostname SoftRouter-RR
+log syslog informational
+no ipv6 forwarding
+service integrated-vtysh-config
+username cumulus nopassword
+!
+password cisco123
+enable password cisco123
+!
+interface Loopback0
+ description Loopback-Prod
+ ip address 10.255.1.1/32
+!
+interface ens34
+ description vmnet7-RR-PE2
+ ip address 10.13.1.1/24
+!
+interface ens35
+ description vmnet6-RR-PE1
+ ip address 10.12.1.1/24
+!
+line vty
+!
+end

@@ -1,0 +1,21 @@
+frr version 6.0
+frr defaults traditional
+hostname SoftRouter-A-CE1
+log syslog informational
+no ipv6 forwarding
+service integrated-vtysh-config
+username cumulus nopassword
+!
+interface Loopback0
+ description Loopback-Prod
+ ip address 10.100.255.1/32
+!
+interface ens34
+ ip address 10.24.1.2/24
+!
+route-map LO0 permit 10
+ match interface Loopback0
+!
+line vty
+!
+end
