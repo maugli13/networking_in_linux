@@ -1,0 +1,21 @@
+frr version 6.0
+frr defaults traditional
+hostname SoftRouter-A-CE2
+log syslog informational
+service integrated-vtysh-config
+username cumulus nopassword
+!
+router bgp 65200
+ bgp router-id 10.100.255.2
+ neighbor 10.36.1.1 remote-as 65000
+ !
+ address-family ipv4 unicast
+  redistribute connected route-map LO0
+ exit-address-family
+!
+route-map LO0 permit 10
+ match interface Loopback0
+!
+line vty
+!
+end
