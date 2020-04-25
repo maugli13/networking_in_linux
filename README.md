@@ -6,4 +6,4 @@ MPLS L3VPN on Linux
 
 <h3>Topology:</h3>
 
-
+![Topology should be here](linux_networking_lab.png "Topology overview")
